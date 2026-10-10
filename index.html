@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  Licitação — Prova de paletas da marca
+  Versão: 1.1
+  Histórico: 1.1 (2026-10-10) — Ajuste para publicar na nuvem (sem tags de documento). · 1.0 (2026-10-10) — Criação: 3 opções de cor de destaque sobre branco + cinza claro, mapa de cores dos concorrentes.
+-->
+<title>Paletas da licitação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --bg2:#f4f4f5; --bg3:#ececee; --bd:#e4e4e7;
+    --t1:#0a0a0a; --t2:#52525b; --t3:#a1a1aa;
+    --ok:#16a34a; --warn:#d97706; --bad:#dc2626;
+    --sans:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --r:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg2);color:var(--t1);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1200px;margin:0 auto;padding:40px 16px 80px}
+  .lbl{font-family:var(--mono);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--t2)}
+  h1.top{font-size:clamp(28px,5vw,44px);font-weight:600;letter-spacing:-1px;line-height:1.1;margin:8px 0 10px}
+  h1.top em{font-style:italic;font-weight:700}
+  .intro{color:var(--t2);max-width:720px;font-size:16px}
+
+  /* mapa de concorrentes */
+  .market{margin:28px 0 48px;background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:20px}
+  .market .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .sw{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--bd);border-radius:8px;padding:6px 10px 6px 6px;font-size:13px}
+  .sw i{width:22px;height:22px;border-radius:6px;display:block;flex:none}
+  .sw b{font-weight:500}
+  .sw span{font-family:var(--mono);font-size:11px;color:var(--t2)}
+  .group{font-family:var(--mono);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);width:100%;margin-top:6px}
+  .free{border-style:dashed;background:transparent}
+
+  /* opções */
+  .opts{display:grid;gap:28px}
+  .opt{background:var(--bg);border:1px solid var(--bd);border-radius:14px;overflow:hidden}
+  .opt-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--bd);flex-wrap:wrap}
+  .opt-head .n{font-family:var(--mono);font-weight:600;font-size:13px}
+  .opt-head .name{font-weight:600;font-size:15px}
+  .tag{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;padding:4px 8px;border-radius:999px;border:1px solid var(--bd);color:var(--t2)}
+  .tag.rec{background:var(--a);color:var(--on-a);border-color:var(--a)}
+  .tag.no{color:var(--bad);border-color:#fecaca;background:#fef2f2}
+
+  /* mini landing */
+  .mini{padding:0 0 24px}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+  .logo{font-family:var(--mono);font-weight:600;font-size:15px;letter-spacing:-.3px;display:flex;align-items:center;gap:8px}
+  .logo i{width:14px;height:14px;border-radius:4px;background:var(--a);display:block}
+  .navr{display:flex;gap:18px;align-items:center;font-size:13px;color:var(--t2)}
+  .navr .hide{display:none}
+  .btn{font-family:var(--sans);font-weight:600;font-size:14px;border-radius:8px;padding:11px 18px;border:1px solid transparent;cursor:pointer;display:inline-block}
+  .btn.p{background:var(--a);color:var(--on-a)}
+  .btn.s{background:transparent;color:var(--t1);border-color:var(--bd)}
+  .btn.sm{padding:7px 12px;font-size:13px}
+  .hero{padding:28px 20px 8px;max-width:760px}
+  .hero h2{font-size:clamp(30px,6vw,52px);line-height:1.05;letter-spacing:-1.5px;font-weight:600}
+  .hero h2 em{font-style:italic;font-weight:700;color:var(--a-txt)}
+  .hero p{color:var(--t2);font-size:16px;margin:14px 0 20px;max-width:560px}
+  .hero .ctas{display:flex;gap:10px;flex-wrap:wrap}
+  .widgets{display:grid;grid-template-columns:1fr;gap:12px;padding:24px 20px 0}
+  .w{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:16px}
+  .w .k{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--t2);display:flex;justify-content:space-between}
+  .w .v{font-family:var(--mono);font-size:30px;font-weight:600;letter-spacing:-1px;margin-top:6px}
+  .w .s{font-size:12px;color:var(--t2);margin-top:2px}
+  .dot{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;font-weight:500;padding:3px 8px;border-radius:999px}
+  .dot::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+  .dot.ok{color:var(--ok);background:#f0fdf4}.dot.warn{color:var(--warn);background:#fffbeb}.dot.bad{color:var(--bad);background:#fef2f2}
+  .bar{height:6px;background:var(--bg3);border-radius:99px;margin-top:10px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--a);border-radius:99px}
+  .accent-strip{display:flex;gap:6px;padding:18px 20px 0;flex-wrap:wrap}
+  .chip{font-family:var(--mono);font-size:11px;padding:4px 8px;border-radius:6px;border:1px solid var(--bd);display:flex;gap:6px;align-items:center}
+  .chip i{width:12px;height:12px;border-radius:3px;display:block}
+  .notes{padding:20px;border-top:1px solid var(--bd);display:grid;gap:8px;font-size:14px;color:var(--t2)}
+  .notes b{color:var(--t1);font-weight:600}
+  .notes .pro::before{content:"+ ";color:var(--ok);font-family:var(--mono);font-weight:600}
+  .notes .con::before{content:"− ";color:var(--bad);font-family:var(--mono);font-weight:600}
+
+  /* paletas */
+  .o1{--a:#ff4f00;--on-a:#0a0a0a;--a-txt:#ff4f00}
+  .o2{--a:#6d28d9;--on-a:#ffffff;--a-txt:#6d28d9}
+  .o3{--a:#e11d2e;--on-a:#ffffff;--a-txt:#e11d2e}
+
+  @media (min-width:760px){
+    .widgets{grid-template-columns:repeat(3,1fr)}
+    .navr .hide{display:inline}
+    .hero{padding:40px 32px 8px}.nav,.widgets,.accent-strip,.notes{padding-left:32px;padding-right:32px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lbl">Licitação · prova de cor da marca · v1.1</div>
+  <h1 class="top">Verde e azul já têm dono. <em>A gente vai de laranja.</em></h1>
+  <p class="intro">Base fixa nas três opções: branco, cinza claro, preto e IBM Plex. Muda só a cor de destaque. Os status do produto (verde apto, âmbar vencendo, vermelho inabilitado) aparecem nos widgets pra ver se brigam com a marca.</p>
+
+  <section class="market">
+    <div class="lbl">Quem ocupa qual cor (tirado do código dos sites, 10/10/2026)</div>
+    <div class="row">
+      <div class="group">Verdes</div>
+      <div class="sw"><i style="background:#10a875"></i><b>ConLicitação</b><span>#10a875</span></div>
+      <div class="sw"><i style="background:#008574"></i><b>Licitei</b><span>#008574</span></div>
+      <div class="sw"><i style="background:#22c55e"></i><b>Siga Pregão</b><span>#22c55e</span></div>
+      <div class="sw"><i style="background:#74b725"></i><b>Lance Fácil</b><span>#74b725</span></div>
+      <div class="sw"><i style="background:#0b5242"></i><b>Alerta Licitação</b><span>#0b5242</span></div>
+      <div class="sw"><i style="background:#198754"></i><b>Settle</b><span>#198754</span></div>
+      <div class="group">Azuis</div>
+      <div class="sw"><i style="background:#121d59"></i><b>Effecti</b><span>#121d59</span></div>
+      <div class="sw"><i style="background:#3a3aff"></i><b>WaveCode</b><span>#3a3aff</span></div>
+      <div class="sw"><i style="background:#006fba"></i><b>eLicitação</b><span>#006fba</span></div>
+      <div class="group">Amarelo (seu)</div>
+      <div class="sw"><i style="background:#F5B800"></i><b>Resolveu</b><span>#F5B800 · LOCKED</span></div>
+      <div class="group">Livre</div>
+      <div class="sw free"><i style="background:#ff4f00"></i><b>Laranja</b><span>ninguém</span></div>
+      <div class="sw free"><i style="background:#6d28d9"></i><b>Violeta</b><span>ninguém</span></div>
+      <div class="sw free"><i style="background:#e11d2e"></i><b>Vermelho</b><span>ninguém, mas…</span></div>
+    </div>
+  </section>
+
+  <div class="opts">
+
+    <!-- OPÇÃO 01 -->
+    <article class="opt o1">
+      <div class="opt-head">
+        <div><span class="n">01</span> &nbsp;<span class="name">Laranja-sinal · #FF4F00</span></div>
+        <span class="tag rec">Recomendado</span>
+      </div>
+      <div class="mini">
+        <div class="nav">
+          <div class="logo"><i></i>[nome]</div>
+          <div class="navr"><span class="hide">Como funciona</span><span class="hide">Preço</span><span class="btn p sm">Entrar</span></div>
+        </div>
+        <div class="hero">
+          <h2>Sua empresa apta todo dia. <em>Aperte um botão.</em></h2>
+          <p>Certidões, envelope e lance prontos sozinhos. Você só escolhe a licitação. A gente cobra só do que você ganhar.</p>
+          <div class="ctas"><span class="btn p">Começar grátis</span><span class="btn s">Ver como funciona</span></div>
+        </div>
+        <div class="widgets">
+          <div class="w"><div class="k">Status hoje <span class="dot ok">Apto</span></div><div class="v">21/21</div><div class="s">documentos válidos</div><div class="bar"><i style="width:100%"></i></div></div>
+          <div class="w"><div class="k">No seu raio · 200 km <span class="dot warn">2 vencem</span></div><div class="v">14</div><div class="s">licitações abertas de material elétrico</div></div>
+          <div class="w"><div class="k">Em disputa <span class="dot bad">1 inabilitada</span></div><div class="v">R$ 1,2 mi</div><div class="s">em 6 pregões esta semana</div></div>
+        </div>
+        <div class="accent-strip">
+          <span class="chip"><i style="background:#ff4f00"></i>#FF4F00 destaque</span>
+          <span class="chip"><i style="background:#c23800"></i>#C23800 link/texto</span>
+          <span class="chip"><i style="background:#fff1ea"></i>#FFF1EA fundo suave</span>
+          <span class="chip"><i style="background:#0a0a0a"></i>texto do botão preto</span>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="pro"><b>Ninguém do mercado usa.</b> Os 9 concorrentes estão em verde ou azul. Na lista do Google, no PNCP e no LinkedIn, você é o único laranja.</div>
+        <div class="pro"><b>Tem a energia do vermelho sem o peso.</b> É a cor de "ação" (segurança, aviação, Hermès). Já está no seu padrão (#ff7a18 da Scalabrin).</div>
+        <div class="pro"><b>Não briga com os status.</b> Verde apto, âmbar vencendo e vermelho inabilitado continuam claros do lado dele.</div>
+        <div class="con"><b>Cuidado no texto pequeno.</b> Sobre branco dá contraste 3,3: só pra título grande e botão. Botão com texto preto (6,0). Link usa o tom escuro #C23800 (5,4).</div>
+      </div>
+    </article>
+
+    <!-- OPÇÃO 02 -->
+    <article class="opt o2">
+      <div class="opt-head">
+        <div><span class="n">02</span> &nbsp;<span class="name">Violeta · #6D28D9</span></div>
+        <span class="tag">Alternativa</span>
+      </div>
+      <div class="mini">
+        <div class="nav">
+          <div class="logo"><i></i>[nome]</div>
+          <div class="navr"><span class="hide">Como funciona</span><span class="hide">Preço</span><span class="btn p sm">Entrar</span></div>
+        </div>
+        <div class="hero">
+          <h2>Sua empresa apta todo dia. <em>Aperte um botão.</em></h2>
+          <p>Certidões, envelope e lance prontos sozinhos. Você só escolhe a licitação. A gente cobra só do que você ganhar.</p>
+          <div class="ctas"><span class="btn p">Começar grátis</span><span class="btn s">Ver como funciona</span></div>
+        </div>
+        <div class="widgets">
+          <div class="w"><div class="k">Status hoje <span class="dot ok">Apto</span></div><div class="v">21/21</div><div class="s">documentos válidos</div><div class="bar"><i style="width:100%"></i></div></div>
+          <div class="w"><div class="k">No seu raio · 200 km <span class="dot warn">2 vencem</span></div><div class="v">14</div><div class="s">licitações abertas de material elétrico</div></div>
+          <div class="w"><div class="k">Em disputa <span class="dot bad">1 inabilitada</span></div><div class="v">R$ 1,2 mi</div><div class="s">em 6 pregões esta semana</div></div>
+        </div>
+        <div class="accent-strip">
+          <span class="chip"><i style="background:#6d28d9"></i>#6D28D9 destaque</span>
+          <span class="chip"><i style="background:#f3efff"></i>#F3EFFF fundo suave</span>
+          <span class="chip"><i style="background:#ffffff;border:1px solid #ddd"></i>texto do botão branco</span>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="pro"><b>Também livre</b> e lê como "tecnologia e IA". Contraste ótimo no branco (7,1), funciona até em texto pequeno.</div>
+        <div class="con"><b>Mais frio e mais "startup".</b> Pro dono de loja de material elétrico de 45 anos, laranja conversa melhor. E fica perto do azul-elétrico da WaveCode.</div>
+      </div>
+    </article>
+
+    <!-- OPÇÃO 03 -->
+    <article class="opt o3">
+      <div class="opt-head">
+        <div><span class="n">03</span> &nbsp;<span class="name">Vermelho · #E11D2E (o que você queria)</span></div>
+        <span class="tag no">Não recomendo</span>
+      </div>
+      <div class="mini">
+        <div class="nav">
+          <div class="logo"><i></i>[nome]</div>
+          <div class="navr"><span class="hide">Como funciona</span><span class="hide">Preço</span><span class="btn p sm">Entrar</span></div>
+        </div>
+        <div class="hero">
+          <h2>Sua empresa apta todo dia. <em>Aperte um botão.</em></h2>
+          <p>Certidões, envelope e lance prontos sozinhos. Você só escolhe a licitação. A gente cobra só do que você ganhar.</p>
+          <div class="ctas"><span class="btn p">Começar grátis</span><span class="btn s">Ver como funciona</span></div>
+        </div>
+        <div class="widgets">
+          <div class="w"><div class="k">Status hoje <span class="dot ok">Apto</span></div><div class="v">21/21</div><div class="s">documentos válidos</div><div class="bar"><i style="width:100%"></i></div></div>
+          <div class="w"><div class="k">No seu raio · 200 km <span class="dot warn">2 vencem</span></div><div class="v">14</div><div class="s">licitações abertas de material elétrico</div></div>
+          <div class="w"><div class="k">Em disputa <span class="dot bad">1 inabilitada</span></div><div class="v">R$ 1,2 mi</div><div class="s">em 6 pregões esta semana</div></div>
+        </div>
+      </div>
+      <div class="notes">
+        <div class="con"><b>Briga com o "inabilitado".</b> No produto, vermelho vai ser erro e prazo estourado. Se a marca é vermelha, tudo parece alerta (repara no terceiro widget).</div>
+        <div class="con"><b>Pesa politicamente.</b> Você vai vender pra prefeitura e pra empresa que vive de prefeitura. Vermelho forte no Brasil é lido como partido. Não vale o risco.</div>
+      </div>
+    </article>
+
+  </div>
+</div>
+</body>
+</html>
